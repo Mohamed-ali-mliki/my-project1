@@ -1,0 +1,7 @@
+<form [formGroup]="formationForm" (ngSubmit)="submit()">
+  <input formControlName="nom" placeholder="Nom">
+  <textarea formControlName="description" placeholder="Description"></textarea>
+  <input formControlName="duree" placeholder="Durée">
+  <button type="submit">Ajouter</button>
+</form>
+

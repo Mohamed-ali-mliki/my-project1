@@ -1,0 +1,15 @@
+<h1>Bienvenue sur la page Home</h1>
+<p>Ceci est la page principale du site de formation.</p>
+
+<h2>Liste des formations</h2>
+<ul>
+	@for (f of formations; track f._id) {
+	<li>
+		{{ f.nom }} {{ f.prenom }} - {{ f.titreFormation }}: {{ f.contenuFormation }}
+		<button (click)="edit(f)">Edit</button>
+		<button (click)="delete(f._id)">Delete</button>
+	</li>
+	} @empty {
+	<li>Aucune formation trouvée.</li>
+	}
+</ul>

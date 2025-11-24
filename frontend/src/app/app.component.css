@@ -1,0 +1,24 @@
+.app-title {
+  text-align: center;
+  color: red;
+}
+
+.nav-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 15px;
+  background-color: rgba(255,255,255,0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.nav-container a {
+  text-decoration: none;
+  color: darkblue;
+  font-weight: bold;
+}
+.nav-container a:hover {
+  text-decoration: underline;
+}

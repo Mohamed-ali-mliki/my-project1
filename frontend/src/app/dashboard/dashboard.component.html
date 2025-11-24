@@ -1,0 +1,51 @@
+<h2>Dashboard Admin</h2>
+
+<!-- FORM -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <input formControlName="username" placeholder="Username">
+  <input formControlName="password" placeholder="Password (laisser vide si non modifié)">
+  <input formControlName="nom" placeholder="Nom">
+  <input formControlName="prenom" placeholder="Prenom">
+  <input formControlName="titreFormation" placeholder="Titre Formation">
+  <input formControlName="contenuFormation" placeholder="Contenu Formation">
+
+  <button type="submit">
+    {{ isEditing ? 'Mettre à jour' : 'Ajouter' }}
+  </button>
+
+  <button *ngIf="isEditing" type="button" (click)="cancelEdit()">Annuler</button>
+
+</form>
+
+<hr>
+
+<!-- TABLE -->
+<table border="1">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Titre</th>
+      <th>Contenu</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let f of formations">
+      <td>{{ f.username }}</td>
+      <td>{{ f.nom }}</td>
+      <td>{{ f.prenom }}</td>
+      <td>{{ f.titreFormation }}</td>
+      <td>{{ f.contenuFormation }}</td>
+
+      <td>
+        <button (click)="editFormation(f)">Modifier</button>
+        <button (click)="deleteFormation(f._id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
