@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Formation {
-  _id?: string;
+  _id?: string; 
   username: string;
   password?: string;
   nom: string;
@@ -16,23 +16,33 @@ export interface Formation {
   providedIn: 'root'
 })
 export class FormationService {
+
+  // API principale للـ formations
   private apiUrl = 'http://localhost:3000/api/formations';
+
+  // API خاصة بـ signup/login (اختياري)
+  private authUrl = 'http://localhost:3000/api/auth';
 
   constructor(private http: HttpClient) {}
 
-  // --- Get All formations (users) ---
+  // --- Get all formations ---
   getFormations(): Observable<Formation[]> {
     return this.http.get<Formation[]>(this.apiUrl);
   }
 
-  // --- Get one formation ---
+  // --- Get one formation by id ---
   getFormation(id: string): Observable<Formation> {
     return this.http.get<Formation>(`${this.apiUrl}/${id}`);
   }
 
-  // --- Create formation (signup) ---
+  // --- Create new formation (حل رقم 1 المطبق هنا) ---
   createFormation(data: Formation): Observable<any> {
-    return this.http.post(`${this.apiUrl}/signup`, data);
+    return this.http.post(`${this.apiUrl}`, data);
+  }
+
+  // --- Signup user (اختياري حسب مشروعك) ---
+  signup(data: Formation): Observable<any> {
+    return this.http.post(`${this.authUrl}/signup`, data);
   }
 
   // --- Update formation ---
@@ -47,6 +57,6 @@ export class FormationService {
 
   // --- Login ---
   login(credentials: { username: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials);
+    return this.http.post(`${this.authUrl}/login`, credentials);
   }
 }

@@ -10,14 +10,14 @@ import { CommonModule } from '@angular/common';
   styles: [
     `
       h1 {
-        color: darkblue;
-      }
-      p {
-        font-size: 1.2em;
-      }
-      h2 {
-        color: darkgreen;
-      }
+	  color: darkblue;
+    }
+    p {
+	  font-size: 1.2em;
+     }
+    h2 {
+	  color: darkgreen;
+    }
     `,
   ],
 })

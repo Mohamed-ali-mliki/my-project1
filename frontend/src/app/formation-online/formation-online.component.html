@@ -1,0 +1,8 @@
+<div class="formations-container">
+  <h2>Liste des formations en ligne</h2>
+  <div *ngFor="let f of formations" class="formation-card">
+    <h3>{{ f.titreFormation }}</h3>
+    <p><strong>Nom:</strong> {{ f.nom }} {{ f.prenom }}</p>
+    <p>{{ f.contenuFormation }}</p>
+  </div>
+</div>

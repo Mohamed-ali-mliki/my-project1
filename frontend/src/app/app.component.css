@@ -1,24 +1,59 @@
 .app-title {
   text-align: center;
   color: red;
+  margin-top: 20px;
+  font-size: 2.5em;
+  font-weight: bold;
 }
 
+/* شريط التنقل في الأعلى على اليمين */
 .nav-container {
   position: fixed;
   top: 10px;
-  left: 10px;
-  display: flex;
-  gap: 15px;
-  background-color: rgba(255,255,255,0.8);
-  padding: 5px 10px;
-  border-radius: 5px;
+  right: 10px;
+  background-color: rgba(16, 211, 169, 0.8); /* خلفية أغمق أكثر أناقة */
+  padding: 8px 12px;
+  border-radius: 10px;
   z-index: 1000;
+  box-shadow: 0 4px 10px rgba(10, 245, 194, 0.3);
 }
+
+.nav-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;      /* عرض العناصر جنبًا إلى جنب */
+  gap: 12px;
+}
+
+.nav-container li {
+  margin: 0;
+  padding: 0;
+}
+
+/* تصميم الأزرار */
 .nav-container a {
   text-decoration: none;
-  color: darkblue;
+  color: white;
   font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: #f7cb08; /* لون أزرق جذاب */
+  transition: all 0.3s ease;
+  font-size: 1em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+
+/* تأثير hover على الأزرار */
 .nav-container a:hover {
-  text-decoration: underline;
+  background-color: #00bfff; /* أزرق فاتح عند المرور */
+  color: #fff;
+  transform: translateY(-2px); /* رفع الزر قليلاً */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* تحسين المسافة بين الأزرار */
+.nav-container li a {
+  display: inline-block;
+  text-align: center;
 }

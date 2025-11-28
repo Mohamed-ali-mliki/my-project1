@@ -3,6 +3,7 @@
 <!-- FORM -->
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+
   <input formControlName="username" placeholder="Username">
   <input formControlName="password" placeholder="Password (laisser vide si non modifié)">
   <input formControlName="nom" placeholder="Nom">
@@ -41,10 +42,11 @@
       <td>{{ f.titreFormation }}</td>
       <td>{{ f.contenuFormation }}</td>
 
-      <td>
-        <button (click)="editFormation(f)">Modifier</button>
-        <button (click)="deleteFormation(f._id)">Supprimer</button>
-      </td>
+     <td>
+  <button class="edit-btn" (click)="editFormation(f)">Modifier</button>
+  <button class="delete-btn" (click)="deleteFormation(f._id)">Supprimer</button>
+</td>
+
     </tr>
   </tbody>
 </table>

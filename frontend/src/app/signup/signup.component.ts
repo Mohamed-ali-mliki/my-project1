@@ -8,62 +8,89 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [ReactiveFormsModule, HttpClientModule],
   templateUrl: './signup.component.html',
   styles: [`
-.signup-container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 30px 25px;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+/* Fond bleu clair */
+.signup-background {
+  height: 100vh;
+  background: #e3f2fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* Carte du formulaire */
+.signup-container {
+  background: white;
+  padding: 30px;
+  width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.7s ease;
+}
+
+/* Titre */
 .signup-container h2 {
   text-align: center;
-  color: #1a73e8;
-  margin-bottom: 25px;
+  color: #12ec2fff;
+  margin-bottom: 20px;
   font-size: 24px;
 }
+
+/* Labels */
 form label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
   color: #333;
 }
+
+/* Inputs + Textarea */
 form input,
 form textarea {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px;
   margin-bottom: 15px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #90caf9;
   font-size: 14px;
-  box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
+  transition: 0.3s;
 }
+
+/* Focus */
 form input:focus,
 form textarea:focus {
-  border-color: #1a73e8;
-  box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25,118,210,0.4);
   outline: none;
 }
+
+/* Bouton */
 form button {
   width: 100%;
   padding: 12px;
-  background-color: #1a73e8;
-  color: #fff;
+  background-color: #2196f3;
+  color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: 0.3s;
 }
+
 form button:hover {
-  background-color: #155ab6;
+  background-color: #1976d2;
 }
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
 @media (max-width: 550px) {
   .signup-container {
-    margin: 20px;
+    width: 90%;
     padding: 20px;
   }
   form button {
@@ -71,12 +98,16 @@ form button:hover {
     padding: 10px;
   }
 }
+
   `],
 })
 export class SignupComponent {
+
   signupForm: FormGroup;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
+
+    // Formulaire
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -87,29 +118,29 @@ export class SignupComponent {
     });
   }
 
+  // Soumission du formulaire
   onSubmit() {
     if (!this.signupForm.valid) {
-      alert('الرجاء ملء جميع الحقول قبل الإرسال.');
+      alert('Veuillez remplir tous les champs.');
       return;
     }
 
     const userData = this.signupForm.value;
 
-    // إرسال البيانات إلى backend
     this.http.post('http://localhost:3000/api/formations/signup', userData)
       .subscribe({
         next: (res) => {
-          console.log('تم التسجيل في MongoDB:', res);
-          alert('تم التسجيل بنجاح!');
+          console.log('Enregistrement réussi:', res);
+          alert('Inscription réussie !');
           this.signupForm.reset();
         },
         error: (err) => {
-          console.error('حدث خطأ:', err);
-          // عرض رسالة الخطأ الفعلية من backend إن وجدت
+          console.error('Erreur:', err);
+
           if (err.error && err.error.message) {
-            alert('خطأ: ' + err.error.message);
+            alert('Erreur: ' + err.error.message);
           } else {
-            alert('حدث خطأ أثناء التسجيل. تحقق من الخادم.');
+            alert('Une erreur est survenue.');
           }
         }
       });

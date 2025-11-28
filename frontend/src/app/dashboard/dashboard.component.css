@@ -1,21 +1,115 @@
+/* --- FORM --- */
 form {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  gap: 8px;
-  margin-bottom: 20px;
+  width: 400px;          /* أعرض قليلاً ليتناسب مع الشاشة */
+  gap: 10px;
+  margin: 0 auto 20px;   /* وضع النموذج في الوسط */
+  padding: 20px;
+  background-color: #4caf50; /* أخضر للنموذج */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+/* مدخلات النموذج */
 input {
-  padding: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-table {
-  width: 100%;
-  margin-top: 20px;
-}
-
-button {
-  padding: 8px;
+/* زر الإضافة / تحديث */
+button[type="submit"] {
+  background-color: #2196f3; /* أزرق */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
+}
+button[type="submit"]:hover {
+  background-color: #1976d2;
+}
+
+/* زر إلغاء */
+button[type="button"] {
+  background-color: #ff9800; /* برتقالي */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button[type="button"]:hover {
+  background-color: #f57c00;
+}
+
+/* --- TABLE --- */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* رؤوس الجدول */
+th {
+  background-color: #ff9800; /* برتقالي */
+  color: white;
+  padding: 12px;
+}
+
+/* محتوى الجدول */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* زر تعديل */
+button.edit-btn {
+  background-color: #4caf50; /* أخضر */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button.edit-btn:hover {
+  background-color: #388e3c;
+}
+
+/* زر حذف */
+button.delete-btn {
+  background-color: #f44336; /* أحمر */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* عنوان Dashboard Admin */
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: rgb(12, 223, 12);
+  font-size: 28px;
+}
+
+/* --- خلفية الصفحة --- */
+:host {
+  display: block;
+  background: #e3f2fd; /* Bleu clair */ /* أزرق بارد */
+  min-height: 100vh;
+  padding: 20px 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }

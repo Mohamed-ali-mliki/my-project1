@@ -8,6 +8,7 @@
 		{{ f.nom }} {{ f.prenom }} - {{ f.titreFormation }}: {{ f.contenuFormation }}
 		<button (click)="edit(f)">Edit</button>
 		<button (click)="delete(f._id)">Delete</button>
+		<button routerLink="/formation">Formation Online</button>
 	</li>
 	} @empty {
 	<li>Aucune formation trouvée.</li>

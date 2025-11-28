@@ -1,24 +1,28 @@
-<div class="signup-container">
-  <h2>التسجيل - Sign Up</h2>
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    <label>Username:</label>
-    <input type="text" formControlName="username" required>
+<div class="signup-background">
+  <div class="signup-container">
+    <h2>Sign Up</h2>
 
-    <label>Password:</label>
-    <input type="password" formControlName="password" required>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-    <label>Nom:</label>
-    <input type="text" formControlName="nom" required>
+      <label>Username:</label>
+      <input type="text" formControlName="username" required>
 
-    <label>Prénom:</label>
-    <input type="text" formControlName="prenom" required>
+      <label>Password:</label>
+      <input type="password" formControlName="password" required>
 
-    <label>Titre de la formation:</label>
-    <input type="text" formControlName="titreFormation" required>
+      <label>Nom:</label>
+      <input type="text" formControlName="nom" required>
 
-    <label>Contenu de la formation:</label>
-    <textarea formControlName="contenuFormation" rows="6" required></textarea>
+      <label>Prénom:</label>
+      <input type="text" formControlName="prenom" required>
 
-    <button type="submit">S'inscrire</button>
-  </form>
+      <label>Titre de la formation:</label>
+      <input type="text" formControlName="titreFormation" required>
+
+      <label>Contenu de la formation:</label>
+      <textarea formControlName="contenuFormation" rows="6" required></textarea>
+
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
 </div>

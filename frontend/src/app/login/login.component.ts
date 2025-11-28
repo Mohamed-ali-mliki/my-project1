@@ -34,7 +34,7 @@ export class LoginComponent {
         next: (res: any) => {
           console.log("Login successful :", res);
           alert("Connexion réussie !");
-          this.router.navigate(['/dashboard']); // 🎯 فتح الداشبورد
+          this.router.navigate(['/dashboard']); 
         },
         error: (err) => {
           console.error("Erreur login :", err);

@@ -1,26 +1,71 @@
-form {
+/* Fond de la page */
+.login-container {
+  height: 100vh;
+  background: #e3f2fd; /* Bleu clair */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Carte du formulaire */
+.login-card {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: fadeIn 0.7s ease;
+}
+
+/* Titre */
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #07e940;
+}
+
+/* Groupe de champs */
+.input-group {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  margin: 50px auto;
-  gap: 10px;
+  margin-bottom: 15px;
 }
 
+/* Style des champs */
 input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #90caf9;
+  transition: 0.3s;
 }
 
+input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25,118,210,0.4);
+}
+
+/* Bouton */
 button {
-  padding: 10px;
-  border-radius: 4px;
-  background-color: darkgreen;
+  width: 100%;
+  padding: 12px;
+  background-color: #2196f3;
   color: white;
   border: none;
-  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: green;
+  background-color: #1976d2;
+}
+
+button:disabled {
+  background-color: #90caf9;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
