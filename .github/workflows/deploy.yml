@@ -3,7 +3,7 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - master  # غيّر إذا كان فرعك الرئيسي اسمه master
+      - master  # فرعك الرئيسي
 
 jobs:
   build-and-deploy:
@@ -30,6 +30,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v6
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        # غيّر <project-name> باسم المشروع كما هو في angular.json outputPath
-        publish_dir: FRONTEND/dist/<project-name>
+        publish_dir: FRONTEND/dist/formation/browser   # ← مجلد browser/ يحتوي index.html
         publish_branch: gh-pages
