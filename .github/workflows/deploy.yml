@@ -22,12 +22,12 @@ jobs:
       working-directory: FRONTEND/
       run: npm install
 
-    - name: Build Angular project
+    - name: Build Angular project 
       working-directory: FRONTEND/
       run: npm run build -- --configuration=production
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v6
+      uses: peaceiris/actions-gh-pages@v3  # ← تم التعديل من v6 إلى v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: FRONTEND/dist/formation/browser   # ← مجلد browser/ يحتوي index.html
