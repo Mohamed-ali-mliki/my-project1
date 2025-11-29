@@ -24,11 +24,12 @@ jobs:
 
     - name: Build Angular project
       working-directory: FRONTEND/
-      run: npm run build -- --output-path=dist --configuration=production
+      run: npm run build -- --configuration=production
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v6
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: FRONTEND/dist
+        # غيّر <project-name> باسم المشروع كما هو في angular.json outputPath
+        publish_dir: FRONTEND/dist/<project-name>
         publish_branch: gh-pages
