@@ -9,7 +9,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-    steps:
+    steps:  
     - name: Checkout repository
       uses: actions/checkout@v3
 
@@ -21,10 +21,13 @@ jobs:
     - name: Install dependencies
       working-directory: frontend
       run: npm install
- 
+
     - name: Build Angular project
       working-directory: frontend
-      run: npm run build -- --configuration=production
+      run: npm run build -- --configuration=production --base-href=/my-project1/
+
+    - name: Create .nojekyll file
+      run: echo "" > frontend/dist/formation/browser/.nojekyll
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
@@ -32,3 +35,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: frontend/dist/formation/browser
         publish_branch: gh-pages
+        force_orphan: true
